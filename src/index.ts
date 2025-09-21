@@ -12,6 +12,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Root route
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "📚 Library API is running! Use /api/books or /api/borrow",
+  });
+});
+
 app.use("/api/books", bookRoutes);
 app.use("/api/borrow", borrowRoutes);
 
